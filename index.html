@@ -1,0 +1,538 @@
+!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PASKIBAR | Laskar Kian Santang</title>
+
+    <meta name="description"
+          content="Website resmi PASKIBAR - Laskar Kian Santang, DPP Dewan Pimpinan Pusat.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.92);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #d4af37;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d4af37;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 25px 80px;
+
+            background:
+                linear-gradient(rgba(0,0,0,.75), rgba(0,0,0,.9)),
+                radial-gradient(circle at center, #252525 0%, #080808 65%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            border-radius: 30px;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 10vw, 110px);
+            line-height: 0.95;
+            letter-spacing: 5px;
+            font-weight: 900;
+        }
+
+        .hero h2 {
+            margin-top: 15px;
+            font-size: clamp(22px, 4vw, 40px);
+            font-weight: 400;
+            color: #d4af37;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            margin: 25px auto;
+            max-width: 700px;
+            color: #cccccc;
+            font-size: 17px;
+        }
+
+        .hero-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 28px;
+            background: #d4af37;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .hero-button:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* SECTION */
+        section {
+            padding: 90px 25px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #d4af37;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        /* ABOUT */
+        .about {
+            background: #101010;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            padding: 35px;
+            background: #171717;
+            border: 1px solid #292929;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .card p {
+            color: #cccccc;
+        }
+
+        /* PROFILE */
+        .profile {
+            text-align: center;
+            background: #080808;
+        }
+
+        .leader-card {
+            max-width: 650px;
+            margin: auto;
+            padding: 45px 30px;
+            background: linear-gradient(145deg, #181818, #0d0d0d);
+            border: 1px solid #333;
+            border-radius: 10px;
+        }
+
+        .leader-card h3 {
+            font-size: 30px;
+            margin: 10px 0;
+        }
+
+        .leader-card .position {
+            color: #d4af37;
+            letter-spacing: 2px;
+            font-size: 14px;
+        }
+
+        /* VISI MISI */
+        .vision {
+            background: #101010;
+        }
+
+        .vision-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .vision-box {
+            padding: 35px;
+            border-left: 4px solid #d4af37;
+            background: #171717;
+        }
+
+        .vision-box h3 {
+            margin-bottom: 15px;
+            color: #d4af37;
+        }
+
+        .vision-box p,
+        .vision-box li {
+            color: #cccccc;
+        }
+
+        .vision-box ul {
+            padding-left: 20px;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            background: #080808;
+        }
+
+        .contact p {
+            color: #bbbbbb;
+            margin-bottom: 25px;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 13px 25px;
+            border: 1px solid #d4af37;
+            color: #d4af37;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        .contact-button:hover {
+            background: #d4af37;
+            color: #000;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: #050505;
+            border-top: 1px solid #222;
+            color: #888;
+            font-size: 13px;
+        }
+
+        footer strong {
+            color: #d4af37;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            .nav-container {
+                padding: 15px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .hero h1 {
+                letter-spacing: 2px;
+            }
+
+            .about-grid,
+            .vision-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 70px 20px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="nav-container">
+
+            <div class="logo">
+                PASKIBAR
+                <span>LASKAR KIAN SATANG</span>
+            </div>
+
+            <ul>
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#pimpinan">Pimpinan</a></li>
+                <li><a href="#visi">Visi & Misi</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                DPP • DEWAN PIMPINAN PUSAT
+            </div>
+
+            <h1>PASKIBAR</h1>
+
+            <h2>LASKAR KIAN SATANG</h2>
+
+            <p>
+                Wadah organisasi yang menjunjung kebersamaan,
+                pengabdian, persatuan, dan kepedulian terhadap
+                masyarakat serta bangsa.
+            </p>
+
+            <a href="#tentang" class="hero-button">
+                TENTANG KAMI
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- TENTANG -->
+    <section class="about" id="tentang">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span>PROFIL ORGANISASI</span>
+                <h2>Tentang PASKIBAR</h2>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="card">
+                    <h3>PASKIBAR</h3>
+
+                    <p>
+                        PASKIBAR merupakan organisasi dengan nama
+                        Laskar Kian Santang yang menjadi wadah
+                        kebersamaan, komunikasi, pengabdian dan
+                        kegiatan sosial kemasyarakatan.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>DPP</h3>
+
+                    <p>
+                        Dewan Pimpinan Pusat (DPP) menjadi bagian
+                        pusat kepemimpinan dan koordinasi organisasi
+                        dalam menjalankan program serta kegiatan
+                        organisasi.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PIMPINAN -->
+    <section class="profile" id="pimpinan">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span>DEWAN PIMPINAN PUSAT</span>
+                <h2>Pimpinan Organisasi</h2>
+            </div>
+
+            <div class="leader-card">
+
+                <div class="position">
+                    KETUA / PENDIRI
+                </div>
+
+                <h3>Encep Wepy Kurnia</h3>
+
+                <p>
+                    PASKIBAR — Laskar Kian Santang
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- VISI MISI -->
+    <section class="vision" id="visi">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span>ARAH ORGANISASI</span>
+                <h2>Visi & Misi</h2>
+            </div>
+
+            <div class="vision-grid">
+
+                <div class="vision-box">
+
+                    <h3>Visi</h3>
+
+                    <p>
+                        Membangun organisasi yang solid, berintegritas,
+                        berjiwa sosial dan mampu memberikan manfaat
+                        bagi masyarakat.
+                    </p>
+
+                </div>
+
+
+                <div class="vision-box">
+
+                    <h3>Misi</h3>
+
+                    <ul>
+                        <li>Membangun persatuan dan kebersamaan.</li>
+                        <li>Mendorong kegiatan sosial kemasyarakatan.</li>
+                        <li>Mengembangkan komunikasi antaranggota.</li>
+                        <li>Menjaga nilai kebersamaan dan kepedulian.</li>
+                        <li>Mendukung kegiatan positif bagi masyarakat.</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KONTAK -->
+    <section class="contact" id="kontak">
+
+        <div class="container">
+
+            <div class="section-title">
+                <span>HUBUNGI KAMI</span>
+                <h2>PASKIBAR</h2>
+            </div>
+
+            <p>
+                Informasi mengenai organisasi dan kegiatan
+                PASKIBAR — Laskar Kian Santang.
+            </p>
+
+            <a href="#" class="contact-button">
+                INFORMASI ORGANISASI
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 <strong>PASKIBAR — Laskar Kian Santang</strong>
+        </p>
+
+        <p>
+            DPP Dewan Pimpinan Pusat
+        </p>
+
+    </footer>
+
+</body>
+</html>
